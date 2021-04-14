@@ -1,13 +1,11 @@
 import json
 import torch
 import requests
-import torch.nn.functional as F
 
 from flask import Flask
 from flask import request
 from flask_restful import Api
 from flask_restful import Resource
-from torchvision import transforms
 
 # local paths to config files
 params_path = '/models/SA_bert_params.pt'
@@ -28,7 +26,6 @@ class Predict(Resource):
         payload = request.get_json()
         text = payload['text']
 
-        self.model.eval()
         prediction, certianty = self.model.predict(text)
 
         return (prediction, certianty*100), # certianty score in percentages
