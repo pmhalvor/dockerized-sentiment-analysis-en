@@ -1,0 +1,4 @@
+flask==1.1.2
+flask-restful==0.3.8
+sklearn==0.19.1
+transformers==4.2.2

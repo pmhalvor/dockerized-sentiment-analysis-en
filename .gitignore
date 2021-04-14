@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+#hide large state dict 
+*state_dict*
+
+
 # User-specific files
 *.rsuser
 *.suo
