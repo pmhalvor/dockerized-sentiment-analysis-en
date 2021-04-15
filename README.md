@@ -10,4 +10,13 @@ The return value of a properly formatted request is a prediction and certianty s
 - Predictions can be interpreted as 0=negative and 1=positive.
 - Certianty score is out of 100.
 
+---------------------
+## Files
+- `model.py`: Customizable BERT model
+- `preprocess.py`: Helper function for loading dataset
+- `train.py`: Script for simple training, further fine tuning
+
+
+
+
 (Currently still in development)
