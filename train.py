@@ -5,7 +5,7 @@ import torch
 
 
 ############## CONFIG ##############
-# configure training # TODO refactor to a config file for flexibility
+# configure training 
 load_saved_model  = False   # if False, new model trained from scratch
 activate_training = True    # if True, will train for __ more epochs
 
