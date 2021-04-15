@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: moirai
+  name: default
   labels:
     name: staging
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: moirai
+  namespace: default
   labels:
     app: sentiment-analysis
   name: sentiment-analysis
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: sentiment-analysis
@@ -25,11 +25,22 @@ spec:
       containers:
       - image: pmhalvor/sentiment-analysis
         name: sentiment-analysis
+        env:
+          - name: bert_state_dict
+            value: models/SA_bert_state_dict.pt
+          - name: bert_params
+            value: models/SA_bert_params.pt
+          - name: bert_score
+            value: models/SA_bert_score.pt
+          - name: CLOUD_STORAGE_BUCKET
+            value: gcp-terraform-pytorch-bucket-1
+          - name: glass_animals
+            value: toes
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: moirai
+  namespace: default
   labels:
     app: sentiment-analysis
   name: sentiment-analysis

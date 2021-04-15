@@ -149,8 +149,8 @@ class Bert(torch.nn.Module):
         tokens = self.tokenize(text)
         output = self.forward(tokens)
 
-        prediction = round(output)
-        confidence = output if prediction==1 else (1-output)
+        prediction = output.round().item()
+        confidence = output.item() if prediction==1 else (1-output.item())
         return prediction, confidence
 
 
