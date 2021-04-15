@@ -40,7 +40,7 @@ class BertSentimentDataset(Dataset):
 
     def __getitem__(self, index: int):
         '''
-        Called when sliced (dataset[0]), spec. when DataLoader iterates
+        Called when sliced (dataset[0]), for example when DataLoader iterates
 
         index: int specifying desired element
 
@@ -74,6 +74,7 @@ class BertSentimentDataset(Dataset):
 
         Returns:
             pandas.DataFrame(labels:bool, tokens:str, lemmatized:str)
+                w/ columns ['tokens', 'labels']
         '''
 
         df = pd.read_csv(data_url, sep='\t')
