@@ -2,9 +2,9 @@
 
 This model provides a baseline architecture for a sentiment analysis task, using BERT to generate context embeddings of inputs. 
 
-Users can interact with the model via POST requests to the API endpoint: http://35.202.26.96/predict
+Users can server their own interactive endpoint by running `app.py`, then passing a JSON payload to : http://0.0.0.0/predict
 
-A JSON payload is expected, with a key-value "text":"sentence to be classified".
+The payload expects, a key-value pair "text":"sentence to be classified".
 
 The return value of a properly formatted request is a prediction and certianty score.
 - Predictions can be interpreted as 0=negative and 1=positive.
